@@ -18,7 +18,7 @@ npm --version >/dev/null 2>&1 || { echo >&2 "Please install npm before running t
 # Ensure we start in project root
 cd "$(dirname "${BASH_SOURCE[0]}")"; cd ..
 
-# Ensure we have current version of electron 
+# Ensure we have current version of electron
 pushd deploy/electron
   npm install
   node_modules/.bin/grunt download-electron
@@ -30,7 +30,7 @@ popd
 if [ "$(echo $(uname -s) | cut -c 1-9)" == "CYGWIN_NT" ]; then
   sed -i 's/:source-map/;;:source-map/' project.clj
 fi
-lein cljsbuild clean && lein cljsbuild once
+lein clean && lein cljsbuild once
 
 # Fetch plugins
 PLUGINS=("Clojure,0.2.0" "CSS,0.0.6" "HTML,0.0.2" "Javascript,0.1.3"
